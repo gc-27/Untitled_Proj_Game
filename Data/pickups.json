@@ -1,5 +1,6 @@
 {
     "test": {
+        "details": "Heals 20 HP. +10 Max Health.",
         "stat_mods":{
             "max_health_mod": 10,
             "health": 20,
