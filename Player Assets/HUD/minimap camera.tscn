@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player Assets/HUD/minimapcamera.gd" type="Script" id=1]
+
+[node name="Camera2" type="Camera"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 100, 24000, 100 )
+keep_aspect = 0
+cull_mask = 1048569
+projection = 2
+current = true
+fov = 179.0
+size = 0.005
+far = 25000.0
+script = ExtResource( 1 )

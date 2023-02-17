@@ -1,0 +1,35 @@
+{
+    "classes": {
+        "arbiter":{
+            "usable_weapons": ["spell bottles", "tomes", "staves"],
+            "max_health": 120,
+            "move_speed": 7,
+            "jump_height": 8
+        },
+        "archmage":{
+            "usable_weapons": ["wands", "books"],
+            "max_health": 90,
+            "move_speed": 12,
+            "jump_height": 8
+        },
+        "magician":{
+            "usable_weapons": ["books", "tomes", "staves", "wands", "spell bottles"],
+            "max_health": 100,
+            "move_speed": 8,
+            "jump_height": 8
+        }
+    },
+
+    "weapons": {
+        "default": {
+            "type": "wand",
+            "path": "res://player assets/weapons/default",
+            "proj_speed": 5,
+            "proj_cd": 100,
+            "proj_damage": 5,
+            "proj_duration": 2,
+            "technique_cd": 40,
+            "deviation": {"pos_x": 0, "pos_y": 0, "pos_z": 0}
+        }
+    }
+}

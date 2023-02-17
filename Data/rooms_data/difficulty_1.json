@@ -1,0 +1,44 @@
+{
+    "room_1": {
+        "path": "res://Game Assets/Rooms/room_enw/",
+        "valid_sides": ["N","E","W"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    },
+    "room_2": {
+        "path": "res://Game Assets/Rooms/room_esw/",
+        "valid_sides": ["S","E","W"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    },
+    "room_3": {
+        "path": "res://Game Assets/Rooms/room_nsw/",
+        "valid_sides": ["S","N","E"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    },
+    "room_4": {
+        "path": "res://Game Assets/Rooms/room_nse/",
+        "valid_sides": ["S","N","W"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    },
+    "room_5": {
+        "path": "res://Game Assets/Rooms/tunnel_ew/",
+        "valid_sides": ["E","W"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    },
+    "room_6": {
+        "path": "res://Game Assets/Rooms/tunnel_ns/",
+        "valid_sides": ["N","S"],
+        "enemies":[],
+        "pickups":[],
+        "props": []
+    }
+}

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player Assets/HUD/Healthbar/healthbarunder.png" type="Texture" id=1]
+[ext_resource path="res://Player Assets/HUD/Healthbar/healthbarprogress.png" type="Texture" id=2]
+
+[node name="HealthBar" type="TextureProgress"]
+margin_left = -6.0
+margin_right = 250.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( -457, -67 )
+min_value = -3.0
+max_value = 27.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )

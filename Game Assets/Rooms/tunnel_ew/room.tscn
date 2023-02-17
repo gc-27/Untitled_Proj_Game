@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game Assets/Rooms/roomscript.gd" type="Script" id=1]
+[ext_resource path="res://Game Assets/Rooms/doorcheck.gd" type="Script" id=2]
+
+[sub_resource type="NavigationMesh" id=2]
+vertices = PoolVector3Array( -10, 20.5, 29.75, -9.75, 20.5, 39.5, -9.75, 20.5, 29.5, -9.75, 20.5, -30.25, -10, 20.5, -39.75, -10, 20.5, -30, -10, 20.5, 19.75, -10, 20.5, 29.75, -9.75, 20.5, 29.5, -9.75, 20.5, 19.5, -9.75, 20.5, -20.25, -9.75, 20.5, -30.25, -10, 20.5, -30, -10, 20.5, -20, -10, 20.5, 9.75, -10, 20.5, 19.75, -9.75, 20.5, 19.5, -9.75, 20.5, 9.5, -9.75, 20.5, -10.25, -9.75, 20.5, -20.25, -10, 20.5, -20, -10, 20.5, -10, -10, 20.5, 0, -10, 20.5, 9.75, -9.75, 20.5, 9.5, -9.75, 20.5, -0.25, -10, 20.5, -10, -10, 20.5, 0, -9.75, 20.5, -0.25, -9.75, 20.5, -10.25, -4.5, 0.5, 39, -4.25, 0.5, 39.5, 4.5, 0.5, 39.5, 4.75, 0.5, 39, 4.5, 0.5, -38.75, 4.25, 0.5, -39.5, -4.5, 0.5, -39.5, -4.75, 0.5, -38.75, 9, 0.5, 0, 9, 0.5, -9.75, -8.75, 0.5, -9.75, -8.75, 0.5, 0, -8.75, 0.5, 0, -8.75, 0.5, 9.75, 9, 0.5, 9.75, 9, 0.5, 0, -4.75, 0.5, -38.75, -8.75, 0.5, -38.75, -8.75, 0.5, -29.25, 9, 0.5, -29.25, 9, 0.5, -38.75, 4.5, 0.5, -38.75, -8.75, 0.5, 29.25, -8.75, 0.5, 39, -4.5, 0.5, 39, 4.75, 0.5, 39, 9, 0.5, 39, 9, 0.5, 29.25, 4.5, 0.5, -38.75, -4.75, 0.5, -38.75, -8.75, 0.5, -29.25, -8.75, 0.5, -19.5, 9, 0.5, -19.5, 9, 0.5, -29.25, -8.75, 0.5, 29.25, -4.5, 0.5, 39, 4.75, 0.5, 39, 9, 0.5, 29.25, 9, 0.5, 19.5, -8.75, 0.5, 19.5, 9, 0.5, -9.75, 9, 0.5, -19.5, -8.75, 0.5, -19.5, -8.75, 0.5, -9.75, -8.75, 0.5, 9.75, -8.75, 0.5, 19.5, 9, 0.5, 19.5, 9, 0.5, 9.75 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 9, 8, 6 ), PoolIntArray( 6, 8, 7 ), PoolIntArray( 13, 12, 10 ), PoolIntArray( 10, 12, 11 ), PoolIntArray( 17, 16, 14 ), PoolIntArray( 14, 16, 15 ), PoolIntArray( 21, 20, 18 ), PoolIntArray( 18, 20, 19 ), PoolIntArray( 25, 24, 22 ), PoolIntArray( 22, 24, 23 ), PoolIntArray( 29, 28, 26 ), PoolIntArray( 26, 28, 27 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ), PoolIntArray( 41, 40, 38 ), PoolIntArray( 38, 40, 39 ), PoolIntArray( 45, 44, 42 ), PoolIntArray( 42, 44, 43 ), PoolIntArray( 48, 47, 46 ), PoolIntArray( 51, 50, 49 ), PoolIntArray( 54, 53, 52 ), PoolIntArray( 57, 56, 55 ), PoolIntArray( 59, 58, 60 ), PoolIntArray( 60, 58, 63 ), PoolIntArray( 60, 63, 62 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 65, 64, 66 ), PoolIntArray( 66, 64, 67 ), PoolIntArray( 67, 64, 69 ), PoolIntArray( 67, 69, 68 ), PoolIntArray( 73, 72, 70 ), PoolIntArray( 70, 72, 71 ), PoolIntArray( 77, 76, 74 ), PoolIntArray( 74, 76, 75 ) ]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 20, 80 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 5, 5, 10 )
+
+[node name="Room" type="Spatial" groups=["Persist", "Rooms"]]
+script = ExtResource( 1 )
+
+[node name="Navigation" type="Navigation" parent="."]
+unique_name_in_owner = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="NavMesh" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 2 )
+
+[node name="Walls" type="Spatial" parent="Navigation/NavMesh"]
+
+[node name="North Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+layers = 9
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/North Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10 )
+width = 80.0
+height = 20.0
+depth = 1.0
+
+[node name="South Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+layers = 9
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/South Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10 )
+width = 80.0
+height = 20.0
+depth = 1.0
+
+[node name="West Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
+layers = 9
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 40 )
+width = 20.0
+height = 20.0
+depth = 1.0
+
+[node name="Cutout" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
+operation = 2
+width = 10.0
+height = 10.0
+depth = 1.0
+
+[node name="East Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+layers = 9
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/East Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 40 )
+width = 20.0
+height = 20.0
+depth = 1.0
+
+[node name="Cutout" type="CSGBox" parent="Navigation/NavMesh/Walls/East Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
+operation = 2
+width = 10.0
+height = 10.0
+depth = 1.0
+
+[node name="Floor" type="CSGMesh" parent="Navigation/NavMesh"]
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+mesh = SubResource( 1 )
+
+[node name="DoorTriggers" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="ETrigger" type="Area" parent="DoorTriggers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -40 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/ETrigger"]
+shape = SubResource( 3 )
+
+[node name="WTrigger" type="Area" parent="DoorTriggers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/WTrigger"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="DoorTriggers/ETrigger" to="DoorTriggers" method="_on_ETrigger_body_entered"]
+[connection signal="body_entered" from="DoorTriggers/WTrigger" to="DoorTriggers" method="_on_WTrigger_body_entered"]

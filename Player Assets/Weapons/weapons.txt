@@ -1,0 +1,5 @@
+Staves boost reusable items.
+Wands shoot projectiles.
+Spellbooks hover the effect over the book, and you pull it away and shoot it.
+Tomes give you Skyrim type magic, allowing you to charge and fire magic at any time.
+Spell bottles are throwable spells.

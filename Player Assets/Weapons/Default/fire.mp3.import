@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire.mp3-4153832cb75ac3c4d1704e02cdb1db0a.mp3str"
+
+[deps]
+
+source_file="res://Player Assets/Weapons/Default/fire.mp3"
+dest_files=[ "res://.import/fire.mp3-4153832cb75ac3c4d1704e02cdb1db0a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

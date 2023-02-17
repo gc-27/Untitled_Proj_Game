@@ -1,0 +1,46 @@
+{
+    "test": {
+        "path": "res://Game Assets/Rooms/test/",
+        "valid_sides": ["N","E","S","W"],
+        "enemies": [
+            {
+            "file_name": "res://Game Assets/Enemies/test/test enemy.tscn",
+            "pos_x": 20,
+            "pos_y": 1,
+            "pos_z": 20,
+            "dead": false,
+            "desired_target": "Player"
+            },
+            {
+            "file_name": "res://Game Assets/Enemies/test/test enemy.tscn",
+            "pos_x": -20,
+            "pos_y": 1,
+            "pos_z": -20,
+            "dead": false,
+            "desired_target": "self"
+            },
+            {
+            "file_name": "res://Game Assets/Enemies/test/test enemy.tscn",
+            "pos_x": -20,
+            "pos_y": 1,
+            "pos_z": 20,
+            "dead": false,
+            "desired_target": "Highest Point"
+            }
+        ],
+        "pickups": [ {
+            "item_name": "test",
+            "pos_x": 0,
+            "pos_y": 4,
+            "pos_z": -20
+        }
+
+        ]
+    },
+    "starting_room": {
+        "path": "res://Game Assets/Rooms/empty_room/",
+        "valid_sides": ["N","E","S","W"],
+        "enemies":[],
+        "pickups":[]
+    }
+}

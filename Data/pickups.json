@@ -1,0 +1,20 @@
+{
+    "test": {
+        "stat_mods":{
+            "max_health_mod": 10,
+            "health": 20,
+            "move_speed_mod": 10,
+            "jump_height_mod": 0,
+            "proj_speed_mod": 0,
+            "proj_cd_mod": 0,
+            "proj_damage_mod": 0,
+            "technique_cd_mod": 0,
+            "technique_current_cd": 0,
+            "proj_deviation": {
+                "pos_x": 0,
+                "pos_y": 0,
+                "pos_z": 0
+            }
+        }
+    }
+}
