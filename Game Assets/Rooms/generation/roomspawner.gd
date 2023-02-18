@@ -14,7 +14,8 @@ func parse_enemy_data(enemydat):
 			spawn.dead = enemy.dead
 			spawn.transform.origin = Vector3(enemy.pos_x, enemy.pos_y, enemy.pos_z)
 			room.enemies.append(spawn)
-		
+		if room.enemies == []:
+			room.room_cleared = true
 
 func parse_pickup_data(pickupdat):
 	for pickup in pickupdat:

@@ -2,8 +2,8 @@ extends Spatial
 
 
 func _ready():
-	var menu = load("res://Game Assets/Main Menu/menu.tscn").instance()
-	add_child(menu)
+	var gui = load("res://Game Assets/Main Menu/menu.tscn").instance()
+	add_child(gui)
 
 
 

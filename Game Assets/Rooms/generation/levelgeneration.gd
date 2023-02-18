@@ -114,7 +114,6 @@ func new_door():
 func generate():
 	gen_room_pos = Vector3(0,0,0)
 	gen_room = global.read_json("res://Data/rooms_data/difficulty_null.json").starting_room
-	room_name = "starting_room"
 	for i in room_count:
 		randomize()
 		checkerN.transform.origin = Vector3(gen_room_pos.x + side_origins.N[0],0,gen_room_pos.z+ side_origins.N[2])
