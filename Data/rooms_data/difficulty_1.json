@@ -15,14 +15,14 @@
     },
     "room_3": {
         "path": "res://Game Assets/Rooms/room_nsw/",
-        "valid_sides": ["S","N","E"],
+        "valid_sides": ["S","N","W"],
         "enemies":[],
         "pickups":[],
         "props": []
     },
     "room_4": {
         "path": "res://Game Assets/Rooms/room_nse/",
-        "valid_sides": ["S","N","W"],
+        "valid_sides": ["S","N","E"],
         "enemies":[],
         "pickups":[],
         "props": []

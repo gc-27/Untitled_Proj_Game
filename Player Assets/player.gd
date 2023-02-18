@@ -36,7 +36,7 @@ var cfg
 
 
 var weapon = "default"
-var player_class = "magician"
+var player_class = "archmage"
 var cooldown = load("res://player assets/cooldown.gd")
 var primary_cooldown
 
@@ -100,8 +100,8 @@ func assign_player_vars(source):
 	if not global.loading_from_save:
 		max_health_mod = 0
 		health = source.max_health
-		move_speed_mod = 0
-		jump_height_mod = 0
+		move_speed_mod = 15
+		jump_height_mod = 30
 
 
 func assign_cfg():

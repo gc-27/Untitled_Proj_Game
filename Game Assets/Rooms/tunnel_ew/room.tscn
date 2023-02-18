@@ -55,27 +55,7 @@ width = 80.0
 height = 20.0
 depth = 1.0
 
-[node name="West Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
-layers = 9
-use_collision = true
-collision_layer = 7
-collision_mask = 7
-
-[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 40 )
-width = 20.0
-height = 20.0
-depth = 1.0
-
-[node name="Cutout" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
-operation = 2
-width = 10.0
-height = 10.0
-depth = 1.0
-
 [node name="East Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 layers = 9
 use_collision = true
 collision_layer = 7
@@ -94,6 +74,26 @@ width = 10.0
 height = 10.0
 depth = 1.0
 
+[node name="West Wall" type="CSGCombiner" parent="Navigation/NavMesh/Walls"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+layers = 9
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="Wall" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 40 )
+width = 20.0
+height = 20.0
+depth = 1.0
+
+[node name="Cutout" type="CSGBox" parent="Navigation/NavMesh/Walls/West Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
+operation = 2
+width = 10.0
+height = 10.0
+depth = 1.0
+
 [node name="Floor" type="CSGMesh" parent="Navigation/NavMesh"]
 use_collision = true
 collision_layer = 7
@@ -104,16 +104,16 @@ mesh = SubResource( 1 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
 
-[node name="ETrigger" type="Area" parent="DoorTriggers"]
+[node name="WTrigger" type="Area" parent="DoorTriggers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -40 )
 
-[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/ETrigger"]
+[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/WTrigger"]
 shape = SubResource( 3 )
 
-[node name="WTrigger" type="Area" parent="DoorTriggers"]
+[node name="ETrigger" type="Area" parent="DoorTriggers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
 
-[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/WTrigger"]
+[node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/ETrigger"]
 shape = SubResource( 3 )
 
 [node name="RoomTrigger" type="Spatial" parent="."]
@@ -126,6 +126,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
 [node name="Collision" type="CollisionShape" parent="RoomTrigger/Trigger"]
 shape = SubResource( 4 )
 
-[connection signal="body_entered" from="DoorTriggers/ETrigger" to="DoorTriggers" method="_on_ETrigger_body_entered"]
-[connection signal="body_entered" from="DoorTriggers/WTrigger" to="DoorTriggers" method="_on_WTrigger_body_entered"]
+[connection signal="body_entered" from="DoorTriggers/WTrigger" to="DoorTriggers" method="_on_ETrigger_body_entered"]
+[connection signal="body_entered" from="DoorTriggers/ETrigger" to="DoorTriggers" method="_on_WTrigger_body_entered"]
 [connection signal="body_entered" from="RoomTrigger/Trigger" to="RoomTrigger" method="_on_Trigger_body_entered"]

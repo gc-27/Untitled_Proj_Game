@@ -19,43 +19,45 @@ var room_number
 # North - 0; East - 1; South - 2; West - 3
 
 func _ready():
+	print(self)
 	if valid_sides.find('N') != -1:
+		$"Navigation/NavMesh/Walls/North Wall/Cutout".operation = 0
 		var north_check = load('res://Game Assets/Rooms/generation/roomcheck.tscn').instance()
-		north_check.transform.origin = Vector3(0, 0, -80)
+		north_check.transform.origin = Vector3(0, 0, -45)
 		north_check.script = load('res://Game Assets/Rooms/sidecheck.gd')
-		north_check.v = "North"
+		north_check.side = "North"
 		add_child(north_check)
 	if valid_sides.find('E') != -1:
+		$"Navigation/NavMesh/Walls/East Wall/Cutout".operation = 0
 		var east_check = load('res://Game Assets/Rooms/generation/roomcheck.tscn').instance()
-		east_check.transform.origin = Vector3(80, 0, 0)
+		east_check.transform.origin = Vector3(45, 0, 0)
 		east_check.script = load('res://Game Assets/Rooms/sidecheck.gd')
-		east_check.v = "East"
+		east_check.side =  "East"
 		add_child(east_check)
 	if valid_sides.find('S') != -1:
+		$"Navigation/NavMesh/Walls/South Wall/Cutout".operation = 0
 		var south_check = load('res://Game Assets/Rooms/generation/roomcheck.tscn').instance()
-		south_check.transform.origin = Vector3(0, 0, 80)
+		south_check.transform.origin = Vector3(0, 0, 45)
 		south_check.script = load('res://Game Assets/Rooms/sidecheck.gd')
-		south_check.v = "South"
+		south_check.side = "South"
 		add_child(south_check)
 	if valid_sides.find('W') != -1:
+		$"Navigation/NavMesh/Walls/West Wall/Cutout".operation = 0
 		var west_check = load('res://Game Assets/Rooms/generation/roomcheck.tscn').instance()
-		west_check.transform.origin = Vector3(-80, 0, 0)
+		west_check.transform.origin = Vector3(-45, 0, 0)
 		west_check.script = load('res://Game Assets/Rooms/sidecheck.gd')
-		west_check.v = "West"
+		west_check.side = "West"
 		add_child(west_check)
 	global.timer.wait_time = .1
 	global.timer.start()
 	yield(global.timer, "timeout")
 	ready = true
-	if room_type == "starting_room":
-		print(doors)
-	change_doors(2)
+	if enemies == []:
+		clear_room()
 	
 func start_room():
 	room_cleared = false
 	change_doors(0)
-	global.player.current_room_id = room_id
-	global.player.current_room = self
 	spawn_enemies()
 			
 func spawn_enemies():
@@ -68,15 +70,12 @@ func spawn_pickups():
 			
 
 func _process(_delta):
-	if ready:
-		if enemies == [] and not room_cleared:
+	if not room_cleared:
+		if global.player.current_room_id == room_id:
+			for enemy in enemies:
+				if not enemy.dead:
+					return
 			clear_room()
-		if not room_cleared:
-			if global.player.current_room_id == room_id:
-				for enemy in enemies:
-					if not enemy.dead:
-						return
-				clear_room()
 
 func clear_room():
 	room_cleared = true

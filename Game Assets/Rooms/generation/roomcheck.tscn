@@ -12,7 +12,7 @@
 shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-visible = false
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 pixel_size = 1.0
 axis = 1
 texture = ExtResource( 2 )
