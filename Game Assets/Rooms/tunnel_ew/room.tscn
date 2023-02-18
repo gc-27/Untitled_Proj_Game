@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game Assets/Rooms/roomscript.gd" type="Script" id=1]
 [ext_resource path="res://Game Assets/Rooms/doorcheck.gd" type="Script" id=2]
+[ext_resource path="res://Game Assets/Rooms/roomtrigger.gd" type="Script" id=3]
 
 [sub_resource type="NavigationMesh" id=2]
 vertices = PoolVector3Array( -10, 20.5, 29.75, -9.75, 20.5, 39.5, -9.75, 20.5, 29.5, -9.75, 20.5, -30.25, -10, 20.5, -39.75, -10, 20.5, -30, -10, 20.5, 19.75, -10, 20.5, 29.75, -9.75, 20.5, 29.5, -9.75, 20.5, 19.5, -9.75, 20.5, -20.25, -9.75, 20.5, -30.25, -10, 20.5, -30, -10, 20.5, -20, -10, 20.5, 9.75, -10, 20.5, 19.75, -9.75, 20.5, 19.5, -9.75, 20.5, 9.5, -9.75, 20.5, -10.25, -9.75, 20.5, -20.25, -10, 20.5, -20, -10, 20.5, -10, -10, 20.5, 0, -10, 20.5, 9.75, -9.75, 20.5, 9.5, -9.75, 20.5, -0.25, -10, 20.5, -10, -10, 20.5, 0, -9.75, 20.5, -0.25, -9.75, 20.5, -10.25, -4.5, 0.5, 39, -4.25, 0.5, 39.5, 4.5, 0.5, 39.5, 4.75, 0.5, 39, 4.5, 0.5, -38.75, 4.25, 0.5, -39.5, -4.5, 0.5, -39.5, -4.75, 0.5, -38.75, 9, 0.5, 0, 9, 0.5, -9.75, -8.75, 0.5, -9.75, -8.75, 0.5, 0, -8.75, 0.5, 0, -8.75, 0.5, 9.75, 9, 0.5, 9.75, 9, 0.5, 0, -4.75, 0.5, -38.75, -8.75, 0.5, -38.75, -8.75, 0.5, -29.25, 9, 0.5, -29.25, 9, 0.5, -38.75, 4.5, 0.5, -38.75, -8.75, 0.5, 29.25, -8.75, 0.5, 39, -4.5, 0.5, 39, 4.75, 0.5, 39, 9, 0.5, 39, 9, 0.5, 29.25, 4.5, 0.5, -38.75, -4.75, 0.5, -38.75, -8.75, 0.5, -29.25, -8.75, 0.5, -19.5, 9, 0.5, -19.5, 9, 0.5, -29.25, -8.75, 0.5, 29.25, -4.5, 0.5, 39, 4.75, 0.5, 39, 9, 0.5, 29.25, 9, 0.5, 19.5, -8.75, 0.5, 19.5, 9, 0.5, -9.75, 9, 0.5, -19.5, -8.75, 0.5, -19.5, -8.75, 0.5, -9.75, -8.75, 0.5, 9.75, -8.75, 0.5, 19.5, 9, 0.5, 19.5, 9, 0.5, 9.75 )
@@ -12,6 +13,9 @@ size = Vector2( 20, 80 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 5, 5, 10 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 8, 10, 38 )
 
 [node name="Room" type="Spatial" groups=["Persist", "Rooms"]]
 script = ExtResource( 1 )
@@ -112,5 +116,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 40 )
 [node name="CollisionShape" type="CollisionShape" parent="DoorTriggers/WTrigger"]
 shape = SubResource( 3 )
 
+[node name="RoomTrigger" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Trigger" type="Area" parent="RoomTrigger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+
+[node name="Collision" type="CollisionShape" parent="RoomTrigger/Trigger"]
+shape = SubResource( 4 )
+
 [connection signal="body_entered" from="DoorTriggers/ETrigger" to="DoorTriggers" method="_on_ETrigger_body_entered"]
 [connection signal="body_entered" from="DoorTriggers/WTrigger" to="DoorTriggers" method="_on_WTrigger_body_entered"]
+[connection signal="body_entered" from="RoomTrigger/Trigger" to="RoomTrigger" method="_on_Trigger_body_entered"]

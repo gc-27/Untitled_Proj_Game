@@ -4,7 +4,7 @@ export (bool) var loading_from_save = false
 
 var player = ""
 var counter = 0
-var testing = true
+var testing = false
 var save_file = 1
 onready var world = get_parent().get_node("World")
 onready var timer = $Timer
@@ -88,14 +88,15 @@ func start_game():
 		for r in global.read_json("res://Data/rooms_data/difficulty_null.json"):
 			if r == "test":
 				room_name = r
-		var room = room_spawner.spawn_room(gen_room, gen_room_pos, room_name)
+		room_spawner.spawn_room(gen_room, gen_room_pos, room_name)
 		gen_room_pos = Vector3(0,0,80)
 		gen_room = global.read_json("res://Data/rooms_data/difficulty_null.json").test
 		for r in global.read_json("res://Data/rooms_data/difficulty_null.json"):
 			if r == "test":
 				room_name = r
-		room = room_spawner.spawn_room(gen_room, gen_room_pos, room_name)
+		room_spawner.spawn_room(gen_room, gen_room_pos, room_name)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	save_game()
 	
 
 func scale_array(array):
