@@ -36,7 +36,7 @@ var cfg
 
 
 var weapon = "default"
-var player_class = "archmage"
+var player_class = "magician"
 var cooldown = load("res://player assets/cooldown.gd")
 var primary_cooldown
 

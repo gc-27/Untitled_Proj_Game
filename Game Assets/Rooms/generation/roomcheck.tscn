@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="area" type="Spatial"]
+[node name="area" type="Spatial" groups=["checkers"]]
 
 [node name="Area" type="Area" parent="."]
 
